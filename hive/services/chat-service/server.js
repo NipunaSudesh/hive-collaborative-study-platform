@@ -6,6 +6,9 @@ const http = require('http');
 const { Server } = require('socket.io');
 const { askGrok } = require('./src/services/grokService');
 const chatbotRoutes = require('./src/routes/chatbotRoute');
+const connectDB = require('./src/config/db');
+
+connectDB(process.env.MONGO_URI || 'mongodb://localhost:27017/hive');
 
 dotenv.config();
 const PORT = process.env.PORT || 3003;
